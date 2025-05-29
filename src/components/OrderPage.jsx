@@ -1,50 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Box, Grid } from '@mui/material';
 import Header from './Header';
+import NameInput from './NameInput';
 import SizeSelector from './SizeSelector';
 import DoughSelector from './DoughSelector';
 import ToppingsSelector from './ToppingsSelector';
 import NoteInput from './NoteInput';
 
+
 function OrderPage() {
+    const [size, setSize] = useState('');
+    const [dough, setDough] = useState('');
+    const [selected, setSelected] = useState([]);
+    const [note, setNote] = useState('');
+
     return (
-        <div>
+        <Box>
             <Header />
-            <div
-                style={{
-                    maxWidth: '700px',
-                    margin: '2rem auto',
-                    padding: '20px',
+            <Box
+                sx={{
+                    maxWidth: '500px',
+                    mx: 'auto',
+                    my: 4,
+                    px: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '30px',
-                    fontFamily: 'Roboto, sans-serif',
+                    gap: 6,
                 }}
             >
-                <h2 style={{ fontSize: '20px', fontWeight: '600' }}>
-                    Position Absolute Acı Pizza
-                </h2>
-                <p style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px' }}>
-                    85.50₺
-                </p>
+                <NameInput />
+                <Grid container spacing={10} alignItems="flex-start">
 
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        gap: '10px',
-                        flexWrap: 'wrap',
-                    }}
-                >
-                    <SizeSelector />
-                    <div>
-                        <DoughSelector />
-                    </div>
-                </div>
+                    <Grid item xs={12} md={6}>
+                        <Box sx={{ pr: { sm: 3 } }}>
+                            <SizeSelector size={size} setSize={setSize} />
+                        </Box>
+                    </Grid>
 
-                <ToppingsSelector />
-                <NoteInput />
-            </div>
-        </div>
+
+                    <Grid item xs={12} md={6}>
+                        <Box sx={{ pl: { sm: 3 } }}>
+                            <DoughSelector dough={dough} setDough={setDough} />
+                        </Box>
+                    </Grid>
+
+                </Grid>
+                <ToppingsSelector selected={selected} setSelected={setSelected} />
+                <NoteInput note={note} setNote={setNote} />
+
+            </Box>
+            <hr />
+        </Box>
     );
 }
 

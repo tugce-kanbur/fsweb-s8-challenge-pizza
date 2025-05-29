@@ -1,43 +1,21 @@
-import React from 'react'
-import { useState } from "react";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-function SizeSelector() {
-    const [size, setSize] = useState("");
+import React from 'react';
+import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 
-    const handleChange = (event) => {
-        setSize(event.target.value);
-    };
+function SizeSelector({ size, setSize }) {
+    const handleChange = (event) => setSize(event.target.value);
+
     return (
-        <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label" style={{ color: 'black', fontWeight: '600' }} >Boyut Seç <span style={{ color: "red" }}>*</span></FormLabel>
-            <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="radio-buttons-group"
-            >
-                <FormControlLabel
-                    type="radio"
-                    value="Küçük"
-                    checked={size === "Küçük"}
-                    onChange={handleChange}
-                    control={<Radio />}
-                    label="Küçük" />
-                <FormControlLabel type="radio"
-                    value="Orta"
-                    checked={size === "Orta"}
-                    onChange={handleChange} control={<Radio />} label="Orta" />
-                <FormControlLabel type="radio"
-                    value="Büyük"
-                    checked={size === "Büyük"}
-                    onChange={handleChange} control={<Radio />} label="Büyük" />
+        <FormControl >
+            <FormLabel sx={{ fontWeight: 600, color: 'black', fontSize: '1rem', mb: 1 }}>
+                Boyut Seç <span style={{ color: 'red' }}>*</span>
+            </FormLabel>
+            <RadioGroup value={size} onChange={handleChange}>
+                <FormControlLabel value="Küçük" control={<Radio />} label="Küçük" />
+                <FormControlLabel value="Orta" control={<Radio />} label="Orta" />
+                <FormControlLabel value="Büyük" control={<Radio />} label="Büyük" />
             </RadioGroup>
-
         </FormControl>
-    )
+    );
 }
 
-export default SizeSelector
+export default SizeSelector;

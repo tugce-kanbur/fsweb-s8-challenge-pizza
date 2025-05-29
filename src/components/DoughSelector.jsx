@@ -1,39 +1,38 @@
-import React from 'react'
-import { useState } from "react";
-function DoughSelector() {
-    const [dough, setDough] = useState("");
-    const [error, setError] = useState(false);
+import React from 'react';
+import { TextField, MenuItem, FormControl, FormLabel, Select } from '@mui/material';
 
-    const handleChange = (event) => {
-        setDough(event.target.value);
-        if (event.target.value !== '') {
-            setError(false);
-        }
-    };
-
-    const handleBlur = () => {
-        if (dough === '') {
-            setError(true);
-            alert("Lütfen bir hamur tipi seçin!");
-            console.log("Hata: Hamur tipi seçilmedi.");
-        }
-    }
+function DoughSelector({ dough, setDough }) {
     return (
-        <div className='form-control' required
-            error={error}
-            onBlur={handleBlur}>
-            <h3>
-                Hamur Seç <span style={{ color: "red" }}>*</span>
-            </h3>
-            <select value={dough} onChange={handleChange}>
-                <option value="">Hamur Kalınlığı</option>
-                <option value="İnce">İnce</option>
-                <option value="Normal">Normal</option>
-                <option value="Kalın">Kalın</option>
-            </select>
-            {error && <ErrorText>Lütfen bir hamur tipi seçin</ErrorText>}
-        </div>
-    )
+        <FormControl fullWidth >
+            <FormLabel sx={{ fontWeight: 600, color: 'black', fontSize: '1rem', mb: 1 }}>
+                Hamur Seç <span style={{ color: 'red' }}>*</span>
+            </FormLabel>
+            <Select
+                value={dough}
+                onChange={(e) => setDough(e.target.value)}
+                displayEmpty
+                sx={{
+                    color: 'black',
+                    border: '1px solid black',
+                    borderRadius: '4px',
+                    '& fieldset': {
+                        borderColor: 'black',
+                    },
+                    '&:hover fieldset': {
+                        borderColor: 'black',
+                    },
+                    '&.Mui-focused fieldset': {
+                        borderColor: 'black',
+                    },
+                }}
+            >
+                <MenuItem value="">Hamur Kalınlığı</MenuItem>
+                <MenuItem value="İnce">İnce</MenuItem>
+                <MenuItem value="Normal">Normal</MenuItem>
+                <MenuItem value="Kalın">Kalın</MenuItem>
+            </Select>
+        </FormControl >
+    );
 }
 
-export default DoughSelector
+export default DoughSelector;
