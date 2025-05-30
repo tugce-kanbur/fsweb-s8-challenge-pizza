@@ -19,12 +19,14 @@ export default function ToppingsSelector({ selected, setSelected }) {
         if (selected.includes(value)) {
             if (selected.length <= 3) {
                 alert('En az 3 malzeme seçmelisiniz.');
+                setSelected([]);
                 return;
             }
             setSelected(selected.filter((item) => item !== value));
         } else {
             if (selected.length >= 10) {
                 alert('En fazla 10 malzeme seçebilirsiniz.');
+                setSelected([]);
                 return;
             }
             setSelected([...selected, value]);

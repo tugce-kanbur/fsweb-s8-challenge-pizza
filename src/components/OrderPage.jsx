@@ -6,14 +6,14 @@ import SizeSelector from './SizeSelector';
 import DoughSelector from './DoughSelector';
 import ToppingsSelector from './ToppingsSelector';
 import NoteInput from './NoteInput';
-
+import SubmitButton from './SubmitButton';
 
 function OrderPage() {
     const [size, setSize] = useState('');
     const [dough, setDough] = useState('');
     const [selected, setSelected] = useState([]);
     const [note, setNote] = useState('');
-
+    const [count, setCount] = useState(1);
     return (
         <Box>
             <Header />
@@ -47,9 +47,10 @@ function OrderPage() {
                 </Grid>
                 <ToppingsSelector selected={selected} setSelected={setSelected} />
                 <NoteInput note={note} setNote={setNote} />
-
+                <hr />
+                <SubmitButton selected={selected} count={count} setCount={setCount} />
             </Box>
-            <hr />
+
         </Box>
     );
 }
