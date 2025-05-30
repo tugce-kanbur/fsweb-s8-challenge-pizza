@@ -1,9 +1,9 @@
 import React from 'react';
-import { TextField, MenuItem, FormControl, FormLabel, Select } from '@mui/material';
+import { TextField, MenuItem, FormControl, FormLabel, Select, } from '@mui/material';
 
 function DoughSelector({ dough, setDough }) {
     return (
-        <FormControl fullWidth >
+        <FormControl fullWidth>
             <FormLabel sx={{ fontWeight: 600, color: 'black', fontSize: '1rem', mb: 1 }}>
                 Hamur Seç <span style={{ color: 'red' }}>*</span>
             </FormLabel>
@@ -27,6 +27,7 @@ function DoughSelector({ dough, setDough }) {
                 }}
             >
                 <MenuItem value="">Hamur Kalınlığı</MenuItem>
+                <MenuItem value="Süpper İnce">Süpper İnce</MenuItem>
                 <MenuItem value="İnce">İnce</MenuItem>
                 <MenuItem value="Normal">Normal</MenuItem>
                 <MenuItem value="Kalın">Kalın</MenuItem>

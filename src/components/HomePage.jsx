@@ -1,13 +1,24 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+
+import Footer from './Footer';
+import Header1 from './Header1';
+import Navigate from './Navigate';
+import Main from './Main';
 function HomePage() {
     return (
         <div>
-            <div className="home-page">
-                <h1>Pizza Acıktırır!</h1>
-                <Link to="/order">
-                    <button>Acıktım</button>
-                </Link>
+            <div>
+                <Header1 />
+            </div>
+            <div>
+                <Navigate />
+            </div>
+
+            <div>
+                <Main />
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     )

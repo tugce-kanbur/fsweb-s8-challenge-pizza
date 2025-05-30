@@ -12,12 +12,6 @@ const styles = {
         width: '90%',
         maxWidth: '1900px',
         margin: '0 auto',
-        /*display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexDirection: "colum",
-        alignItems: "center",
-        justifyContent: "center",*/
     },
     logoImg: {
         height: '40px',

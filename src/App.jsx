@@ -1,17 +1,26 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import OrderPage from './components/OrderPage';
 import SuccessPage from './components/SuccessPage';
+import { useState } from 'react';
 
 function App() {
+  const [orderData, setOrderData] = useState(null);
+
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/order" component={OrderPage} />
-        <Route path="/success" component={SuccessPage} />
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+
+      <Route
+        path="/order"
+        render={() => <OrderPage orderData={orderData} setOrderData={setOrderData} />}
+      />
+
+      <Route
+        path="/success"
+        render={() => <SuccessPage orderData={orderData} />}
+      />
+    </Switch>
   );
 }
 

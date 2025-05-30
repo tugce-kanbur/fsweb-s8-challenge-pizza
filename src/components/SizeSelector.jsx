@@ -5,15 +5,16 @@ function SizeSelector({ size, setSize }) {
     const handleChange = (event) => setSize(event.target.value);
 
     return (
-        <FormControl >
+        <FormControl>
             <FormLabel sx={{ fontWeight: 600, color: 'black', fontSize: '1rem', mb: 1 }}>
                 Boyut Seç <span style={{ color: 'red' }}>*</span>
             </FormLabel>
             <RadioGroup value={size} onChange={handleChange}>
-                <FormControlLabel value="Küçük" control={<Radio />} label="Küçük" />
-                <FormControlLabel value="Orta" control={<Radio />} label="Orta" />
-                <FormControlLabel value="Büyük" control={<Radio />} label="Büyük" />
+                <FormControlLabel value="Küçük" control={<Radio />} label="S" />
+                <FormControlLabel value="Orta" control={<Radio />} label="M" />
+                <FormControlLabel value="Büyük" control={<Radio />} label="L" />
             </RadioGroup>
+
         </FormControl>
     );
 }
