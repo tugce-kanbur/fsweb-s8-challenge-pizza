@@ -10,9 +10,9 @@ function SizeSelector({ size, setSize }) {
                 Boyut Seç <span style={{ color: 'red' }}>*</span>
             </FormLabel>
             <RadioGroup value={size} onChange={handleChange}>
-                <FormControlLabel value="Küçük" control={<Radio />} label="S" />
-                <FormControlLabel value="Orta" control={<Radio />} label="M" />
-                <FormControlLabel value="Büyük" control={<Radio />} label="L" />
+                <FormControlLabel value="Küçük" control={<Radio />} label="Küçük" />
+                <FormControlLabel value="Orta" control={<Radio />} label="Orta" />
+                <FormControlLabel value="Büyük" control={<Radio />} label="Büyük" />
             </RadioGroup>
 
         </FormControl>

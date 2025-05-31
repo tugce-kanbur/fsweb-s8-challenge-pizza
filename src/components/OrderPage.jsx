@@ -23,12 +23,10 @@ function OrderPage({ setOrderData }) {
 
     const isFormValid = () => {
         return name.length >= 3 && size && dough && selected.length >= 3;
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-
 
         if (!isFormValid()) {
             alert('Lütfen tüm alanları doğru doldurun.');
@@ -60,7 +58,7 @@ function OrderPage({ setOrderData }) {
                         "x-api-key": "reqres-free-v1"
                     }
                 }
-            )
+            );
 
             console.log("API yanıtı:", response.data);
             setOrderData(siparis);
@@ -81,23 +79,21 @@ function OrderPage({ setOrderData }) {
                         maxWidth: '500px',
                         mx: 'auto',
                         my: 4,
-                        px: 2,
+                        px: { xs: 2, sm: 4 },
                         display: 'flex',
                         flexDirection: 'column',
                         gap: 6,
                     }}
                 >
                     <NameInput />
-                    <Grid container spacing={10} alignItems="flex-start">
-                        <Grid item xs={12} md={6}>
-                            <Box sx={{ pr: { sm: 3 } }}>
-                                <SizeSelector size={size} setSize={setSize} />
-                            </Box>
+
+
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} sm={6}>
+                            <SizeSelector size={size} setSize={setSize} />
                         </Grid>
-                        <Grid item xs={12} md={6}>
-                            <Box sx={{ pl: { sm: 3 } }}>
-                                <DoughSelector dough={dough} setDough={setDough} />
-                            </Box>
+                        <Grid item xs={12} sm={6}>
+                            <DoughSelector dough={dough} setDough={setDough} />
                         </Grid>
                     </Grid>
 
@@ -106,6 +102,7 @@ function OrderPage({ setOrderData }) {
                     <NoteInput note={note} setNote={setNote} />
 
                     <hr />
+
                     <SubmitButton selected={selected} count={count} setCount={setCount} />
                 </Box>
             </form>

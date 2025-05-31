@@ -1,62 +1,76 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const styles = {
-    header: {
-        backgroundColor: '#CE2829',
-        padding: '20px 0',
-        color: 'white',
-        height: '100px',
-    },
-    container: {
-        width: '90%',
-        maxWidth: '1900px',
-        margin: '0 auto',
-    },
-    logoImg: {
-        height: '40px',
-        display: 'block',
-        margin: '0 auto',
-
-    },
-    breadcrumb: {
-        fontSize: '14px',
-        color: 'white',
-        marginTop: '20px',
-        gap: '10px',
-        padding: '10px'
-    },
-    breadcrumbLink: {
-        color: 'white',
-        textDecoration: 'none',
-        fontWeight: 'bold',
-        marginLeft: '430px',
-
-    },
-};
-
 function Header() {
-    return (
-        <div>
-            <header className="header" style={styles.header}>
-                <div className="container" style={styles.container}>
-                    <Link to="/" className="logo-img" >
-                        <img
-                            style={styles.logoImg}
-                            src="/images/iteration-1-images/logo.svg"
-                            alt="Teknolojik Yemekler"
-                            className="logo-img"
-                        />
-                    </Link>
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 420);
 
-                    <nav className="breadcrumb" style={styles.breadcrumb}>
-                        <Link to="/" style={styles.breadcrumbLink}>Anasayfa</Link> <span> - </span>{" "}
-                        <span>Sipariş Oluştur</span>
-                    </nav>
-                </div>
-            </header>
-        </div>
-    )
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 420);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const styles = {
+        header: {
+            backgroundColor: '#CE2829',
+            padding: '20px 0',
+            color: 'white',
+            height: '207px',
+            borderBottom: '1px solid #C20608',
+        },
+        container: {
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100%',
+            padding: '0 1rem',
+            boxSizing: 'border-box',
+        },
+        logoImg: {
+            height: '45px',
+            marginBottom: '16px',
+        },
+        breadcrumb: {
+            fontSize: '14px',
+            color: 'white',
+            display: 'flex',
+            gap: '8px',
+            flexWrap: 'wrap',
+            justifyContent: isMobile ? 'center' : 'flex-start',
+            alignItems: 'center',
+        },
+        breadcrumbLink: {
+            color: 'white',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+        },
+    };
+
+    return (
+        <header style={styles.header}>
+            <div style={styles.container}>
+                <Link to="/">
+                    <img
+                        style={styles.logoImg}
+                        src="/images/iteration-1-images/logo.svg"
+                        alt="Teknolojik Yemekler"
+                    />
+                </Link>
+                <nav style={styles.breadcrumb}>
+                    <Link to="/" style={styles.breadcrumbLink}>Anasayfa</Link>
+                    <span> - </span>
+                    <span>Sipariş Oluştur</span>
+                </nav>
+            </div>
+        </header>
+    );
 }
 
-export default Header
+export default Header;
