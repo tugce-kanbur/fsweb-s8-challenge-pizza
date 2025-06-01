@@ -2,6 +2,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import OrderPage from './components/OrderPage';
 import SuccessPage from './components/SuccessPage';
+import NotFound from './components/NotFound';
 import { useState } from 'react';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
         path="/success"
         render={() => <SuccessPage orderData={orderData} />}
       />
+
+      <Route path="*" render={() => <NotFound />} />
     </Switch>
   );
 }

@@ -103,7 +103,9 @@ function OrderPage({ setOrderData }) {
 
                     <hr />
 
-                    <SubmitButton selected={selected} count={count} setCount={setCount} />
+                    <SubmitButton selected={selected} count={count} setCount={setCount} size={size}
+                        dough={dough}
+                        name={name} />
                 </Box>
             </form>
         </Box>

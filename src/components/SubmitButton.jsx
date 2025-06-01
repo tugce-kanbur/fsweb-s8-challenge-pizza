@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from "@mui/material/Button";
 
-function SubmitButton({ selected, count, setCount }) {
+function SubmitButton({ selected, count, setCount, size, dough, name }) {
     const basePrice = 85.5;
     const extraPrice = 5;
     const extrasTotal = selected.length * extraPrice;
@@ -15,6 +15,9 @@ function SubmitButton({ selected, count, setCount }) {
         setCount(count + 1);
     };
 
+    const isDisabled =
+        !size || !dough || selected.length < 3 || selected.length > 10 || name.trim().length < 3;
+
     return (
         <div>
             <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
@@ -25,6 +28,7 @@ function SubmitButton({ selected, count, setCount }) {
                     overflow: "hidden",
                 }}>
                     <button
+                        type="button"
                         onClick={decrease}
                         style={{
                             backgroundColor: "#FFC107",
@@ -43,6 +47,7 @@ function SubmitButton({ selected, count, setCount }) {
                         {count}
                     </div>
                     <button
+                        type="button"
                         onClick={increase}
                         style={{
                             backgroundColor: "#FFC107",
@@ -79,8 +84,10 @@ function SubmitButton({ selected, count, setCount }) {
                         <span>{totalPrice.toFixed(2)}₺</span>
                     </div>
                     <Button
+                        data-cy="submitBtn"
                         type="submit"
                         variant="contained"
+                        disabled={isDisabled}
                         fullWidth
                         sx={{
                             backgroundColor: "#FFC107",
@@ -99,3 +106,4 @@ function SubmitButton({ selected, count, setCount }) {
 }
 
 export default SubmitButton;
+

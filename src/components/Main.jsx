@@ -36,7 +36,7 @@ function Main() {
                             Burger Menü
                         </h2>
                         <Link to="/order">
-                            <button className="btn-siparis">SİPARİŞ VER</button>
+                            <button className="btn-siparis1">SİPARİŞ VER</button>
                         </Link>
                     </div>
 
@@ -46,7 +46,7 @@ function Main() {
                             npm gibi kurye
                         </h2>
                         <Link to="/order">
-                            <button className="btn-siparis">SİPARİŞ VER</button>
+                            <button className="btn-siparis2">SİPARİŞ VER</button>
                         </Link>
                     </div>
                 </section>
