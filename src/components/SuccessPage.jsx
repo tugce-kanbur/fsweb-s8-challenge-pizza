@@ -10,8 +10,8 @@ function SuccessPage({ orderData }) {
     return (
         <div className="container-success">
             <div className="page">
-                <h2 class="logo">Teknolojik Yemekler</h2>
-                <p class="subtitle">lezzetin yolda</p>
+                <h2 className="logo">Teknolojik Yemekler</h2>
+                <p className="subtitle">lezzetin yolda</p>
                 <h1 className="title">SİPARİŞ ALINDI!</h1>
 
                 <hr />
